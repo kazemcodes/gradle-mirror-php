@@ -4,19 +4,33 @@
 
 ### Usage:
 
-Simply add the mirror url as a maven repository in the `settings.gradle` file and re-sync project:
+**IMPORTANT:** Replace ALL repositories with the mirror URL in your `settings.gradle` file. Remove `google()`, `mavenCentral()`, and other repositories to force all downloads through the mirror:
 
 ```kotlin
 pluginManagement {
     repositories {
         maven("https://en-mirror.ir")
+        // Remove: google()
+        // Remove: mavenCentral()
+        // Remove: gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
-    ...
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         maven("https://en-mirror.ir")
+        // Remove: google()
+        // Remove: mavenCentral()
     }
+}
+```
+
+**Alternative:** Use repository filtering for specific repositories:
+```kotlin
+repositories {
+    maven("https://en-mirror.ir/google")
+    maven("https://en-mirror.ir/central")
+    maven("https://en-mirror.ir/jitpack")
 }
 ```
 > [!NOTE]
@@ -61,19 +75,33 @@ To self-host the mirror on your own server, start the PHP server, and the source
 
 ### نحوه استفاده:
 
-به سادگی تنها آدرس میرور خودتان را در فایل `settings.gradle` به عنوان maven اضافه کنید:
+**مهم:** تمام ریپوزیتوری‌ها رو با آدرس میرور جایگزین کنید. `google()`، `mavenCentral()` و بقیه ریپوها رو حذف کنید تا همه دانلودها از میرور انجام بشه:
 
 ```kotlin
 pluginManagement {
     repositories {
         maven("https://en-mirror.ir")
+        // حذف کنید: google()
+        // حذف کنید: mavenCentral()
+        // حذف کنید: gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
-    ...
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         maven("https://en-mirror.ir")
+        // حذف کنید: google()
+        // حذف کنید: mavenCentral()
     }
+}
+```
+
+**روش جایگزین:** استفاده از فیلتر ریپوزیتوری برای مخازن خاص:
+```kotlin
+repositories {
+    maven("https://en-mirror.ir/google")
+    maven("https://en-mirror.ir/central")
+    maven("https://en-mirror.ir/jitpack")
 }
 ```
 
