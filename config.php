@@ -30,6 +30,7 @@ $config = [
       "ktor"=>"https://maven.pkg.jetbrains.space/public/p/ktor/eap",
       "square"=>"https://oss.sonatype.org/content/repositories/snapshots",
       "snapchat"=>"https://storage.googleapis.com/snap-kit-build/maven",
-      "jfrog"=>"https://oss.jfrog.org/artifactory/oss-snapshot-local"
+      "jfrog"=>"https://oss.jfrog.org/artifactory/oss-snapshot-local",
+      "gradle-distributions"=>"https://services.gradle.org/distributions"
   ]
 ];
